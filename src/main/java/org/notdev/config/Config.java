@@ -20,7 +20,7 @@ public class Config {
         return  new File(path + FILE_NAME);
     }
 
-    public static configExists() {
-        return Files.exists(getFile());
+    public static boolean configExists() {
+        return Files.exists(getFile().toPath());
     }
 }
