@@ -10,6 +10,10 @@ public class Config {
     public static ConfigBuilder load() {
         return ConfigBuilder.loadConfig(getFile());
     }
+
+    public static void save(ConfigBuilder builder) {
+        builder.saveConfig(getFile());
+    }
     public static File getFile() {
         return  new File("config/" + FILE_NAME);
     }
