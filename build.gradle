@@ -71,56 +71,19 @@ jar {
 publishing {
     publications {
         mavenJava(MavenPublication) {
-            groupId = "com.NotDev.Config"
-            artifactId = "Config"
-            version = '1,0'
-            from components.java
-
-            versionMapping {
-                usage('java-api') {
-                    fromResolutionOf('runtimeClasspath')
-                }
-                usage('java-runtime') {
-                    fromResolutionResult()
-                }
+            // add all the jars that should be included when publishing to maven
+            artifact(remapJar) {
+                builtBy remapJar
             }
-            pom {
-                name = 'Config'
-                description = 'A simple config library for my projects'
-
-                licenses {
-                    license {
-                        name = 'The Apache License, Version 2.0'
-                        url = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
-                    }
-                }
-                developers {
-                    developer {
-                        id = 'NotDev'
-                        name = 'NotDev'
-                    }
-                }
-//                scm {
-//                    connection = 'scm:git:git://example.com/my-library.git'
-//                    developerConnection = 'scm:git:ssh://example.com/my-library.git'
-//                    url = 'http://example.com/my-library/'
-//                }
+            artifact(sourcesJar) {
+                builtBy remapSourcesJar
             }
         }
-        }
-    url = uri("https://maven.pkg.github.com/WanderingCat27/Config")
-    credentials {
-        username = "WanderingCat27"
-        password = ""
     }
 
-}
-
-    // See https://docs.gradle.org/current/userguide/publishing_maven.html for information on how to set up publishing.
+    // select the repositories you want to publish to
     repositories {
-        // Add repositories to publish to here.
-        // Notice: This block does NOT have the same function as the block in the top level.
-        // The repositories here will be used for publishing your artifact, not for
-        // retrieving dependencies.
+        // uncomment to publish to the local maven
+        mavenLocal()
     }
 }

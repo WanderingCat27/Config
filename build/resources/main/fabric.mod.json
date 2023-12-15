@@ -12,9 +12,6 @@
   "icon": "assets/config/icon.png",
   "environment": "*",
   "entrypoints": {
-    "main": [
-      "org.notdev.config.Config"
-    ]
   },
   "mixins": [
     "config.mixins.json"
