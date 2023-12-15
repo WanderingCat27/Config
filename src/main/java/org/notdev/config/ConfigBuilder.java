@@ -5,8 +5,10 @@ import com.google.gson.*;
 import net.minecraft.util.Identifier;
 
 import java.io.*;
+import java.lang.reflect.Array;
 import java.lang.reflect.Type;
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -61,10 +63,42 @@ public class ConfigBuilder {
         }
     }
 
-    public Object getItem(String key) {
+    public Object getObject(String key) {
         if(!configMap.containsKey(key))
             return null;
         return configMap.get(key);
+    }
+
+    public int getInt(String key) {
+        Object object = getObject(key);
+        if(object != null) {
+        return object instanceof Double ? (int) Math.round((double) object) : (int) object;
+        }
+        throw new RuntimeException("Object " + key + " does not exist (null pointer)");
+    }
+
+    public int getString(String key) {
+        Object object = getObject(key);
+        if(object != null) {
+            return (String) object;
+        }
+        throw new RuntimeException("Object " + key + " does not exist (null pointer)");
+    }
+
+    public Object[] getArray(String key) {
+        Object object = getObject(key);
+        if(object != null) {
+            return (Object[]) object;
+        }
+        throw new RuntimeException("Object " + key + " does not exist (null pointer)");
+    }
+
+    public HashMap getMap(String key) {
+        Object object = getObject(key);
+        if(object != null) {
+            return (HashMap) object;
+        }
+        throw new RuntimeException("Object " + key + " does not exist (null pointer)");
     }
 
     public static class IdentifierSerializer implements JsonSerializer<Identifier> {
