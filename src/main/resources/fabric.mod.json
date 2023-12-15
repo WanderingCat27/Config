@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "id": "config",
+  "version": "${version}",
+  "name": "Config",
+  "description": "",
+  "authors": [],
+  "contact": {
+    "repo": "https://github.com/chr/Config"
+  },
+  "license": "All-Rights-Reserved",
+  "icon": "assets/config/icon.png",
+  "environment": "*",
+  "entrypoints": {
+  },
+  "mixins": [
+    "config.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric": "*",
+    "minecraft": "${minecraft_version}"
+  }
+}

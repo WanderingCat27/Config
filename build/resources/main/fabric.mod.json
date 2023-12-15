@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "id": "config",
+  "version": "1.0-SNAPSHOT",
+  "name": "Config",
+  "description": "",
+  "authors": [],
+  "contact": {
+    "repo": "https://github.com/chr/Config"
+  },
+  "license": "All-Rights-Reserved",
+  "icon": "assets/config/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "org.notdev.config.Config"
+    ]
+  },
+  "mixins": [
+    "config.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.15.2",
+    "fabric": "*",
+    "minecraft": "1.20.4"
+  }
+}
