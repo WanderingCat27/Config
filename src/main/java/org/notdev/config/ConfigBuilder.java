@@ -77,7 +77,31 @@ public class ConfigBuilder {
         throw new RuntimeException("Object " + key + " does not exist (null pointer)");
     }
 
-    public int getString(String key) {
+    public int getLong(String key) {
+        Object object = getObject(key);
+        if(object != null) {
+            return object instanceof Double ? (int) Math.round((double) object) : (int) object;
+        }
+        throw new RuntimeException("Object " + key + " does not exist (null pointer)");
+    }
+
+    public double getDouble(String key) {
+        Object object = getObject(key);
+        if(object != null) {
+            return (double) object;
+        }
+        throw new RuntimeException("Object " + key + " does not exist (null pointer)");
+    }
+
+    public float getFloat(String key) {
+        Object object = getObject(key);
+        if(object != null) {
+            return (float) object;
+        }
+        throw new RuntimeException("Object " + key + " does not exist (null pointer)");
+    }
+
+    public String getString(String key) {
         Object object = getObject(key);
         if(object != null) {
             return (String) object;
