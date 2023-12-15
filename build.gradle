@@ -100,15 +100,21 @@ publishing {
                         name = 'NotDev'
                     }
                 }
-                scm {
-                    connection = 'scm:git:git://example.com/my-library.git'
-                    developerConnection = 'scm:git:ssh://example.com/my-library.git'
-                    url = 'http://example.com/my-library/'
-                }
+//                scm {
+//                    connection = 'scm:git:git://example.com/my-library.git'
+//                    developerConnection = 'scm:git:ssh://example.com/my-library.git'
+//                    url = 'http://example.com/my-library/'
+//                }
             }
         }
         }
+    url = uri("https://maven.pkg.github.com/WanderingCat27/Config")
+    credentials {
+        username = "WanderingCat27"
+        password = ""
     }
+
+}
 
     // See https://docs.gradle.org/current/userguide/publishing_maven.html for information on how to set up publishing.
     repositories {
